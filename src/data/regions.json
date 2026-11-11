@@ -1,0 +1,112 @@
+{
+  "regions": [
+    {
+      "id": "california_west_us",
+      "name": "California",
+      "fullName": "California & West US",
+      "center": [
+        -119.3,
+        37.25
+      ],
+      "bbox": [
+        -124.6,
+        32.4,
+        -114.0,
+        42.1
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "fullName": "Amazon Basin",
+      "center": [
+        -59.0,
+        -5.0
+      ],
+      "bbox": [
+        -74.0,
+        -15.0,
+        -44.0,
+        5.0
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "fullName": "Australia",
+      "center": [
+        133.0,
+        -27.0
+      ],
+      "bbox": [
+        112.0,
+        -44.0,
+        154.0,
+        -10.0
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    },
+    {
+      "id": "canada_boreal",
+      "name": "Canada Boreal",
+      "fullName": "Canada Boreal",
+      "center": [
+        -100.5,
+        57.5
+      ],
+      "bbox": [
+        -141.0,
+        50.0,
+        -60.0,
+        65.0
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "fullName": "India",
+      "center": [
+        83.0,
+        21.75
+      ],
+      "bbox": [
+        68.0,
+        6.0,
+        98.0,
+        37.5
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    },
+    {
+      "id": "malaysia",
+      "name": "Malaysia",
+      "fullName": "Malaysia",
+      "center": [
+        109.5,
+        4.15
+      ],
+      "bbox": [
+        99.5,
+        0.8,
+        119.5,
+        7.5
+      ],
+      "status": "ready",
+      "isReady": true,
+      "badge": "Active Archive"
+    }
+  ]
+}
