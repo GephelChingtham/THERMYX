@@ -11,6 +11,7 @@ import { TheFixSection } from './components/TheFixSection';
 import { CaliforniaSection } from './components/CaliforniaSection';
 import { ProofSection } from './components/ProofSection';
 import { Footer } from './components/Footer';
+import { PitchModal } from './components/PitchModal';
 import regionsData from './data/regions.json';
 
 export type RegionId =
@@ -25,6 +26,7 @@ export type RegionId =
 export default function App() {
   const [selectedRegion, setSelectedRegion] = useState<RegionId>('california_west_us');
   const [simpleView, setSimpleView] = useState<boolean>(false);
+  const [isPitchModalOpen, setIsPitchModalOpen] = useState<boolean>(false);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -47,6 +49,7 @@ export default function App() {
           activeRegionName={activeRegionObj.name}
           simpleView={simpleView}
           onToggleSimpleView={() => setSimpleView((prev) => !prev)}
+          onOpenPitch={() => setIsPitchModalOpen(true)}
           onExploreClick={() => scrollTo('the-fix')}
           onMethodClick={() => scrollTo('the-problem')}
           onCaliforniaClick={() => scrollTo('california')}
@@ -87,6 +90,13 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Interactive Pitch Modal */}
+      <PitchModal
+        isOpen={isPitchModalOpen}
+        onClose={() => setIsPitchModalOpen(false)}
+        onSelectRegion={(r) => setSelectedRegion(r as RegionId)}
+      />
     </div>
   );
 }

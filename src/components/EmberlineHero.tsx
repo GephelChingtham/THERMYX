@@ -16,6 +16,7 @@ interface EmberlineHeroProps {
   activeRegionName: string;
   simpleView: boolean;
   onToggleSimpleView: () => void;
+  onOpenPitch: () => void;
   onExploreClick: () => void;
   onMethodClick: () => void;
   onCaliforniaClick: () => void;
@@ -122,6 +123,7 @@ export function EmberlineHero({
   activeRegionName,
   simpleView,
   onToggleSimpleView,
+  onOpenPitch,
   onExploreClick,
   onMethodClick,
   onCaliforniaClick,
@@ -182,24 +184,35 @@ export function EmberlineHero({
             </button>
           </nav>
 
-          {/* Simple View Toggle */}
-          <button
-            type="button"
-            onClick={onToggleSimpleView}
-            aria-pressed={simpleView}
-            className={`min-h-[38px] px-3.5 py-1.5 rounded-full text-[12px] font-mono-numbers uppercase tracking-wider border transition-all cursor-pointer flex items-center gap-2 ${
-              simpleView
-                ? 'bg-[#FC5000] text-white border-[#FC5000] font-bold'
-                : 'bg-[#131316] text-[#9A8F85] border-[#26262B] hover:text-[#F2EFE9]'
-            }`}
-          >
-            <span
-              className={`w-2 h-2 rounded-full ${
-                simpleView ? 'bg-white' : 'bg-[#9A8F85]'
+          {/* Controls: Pitch Mode & Simple View */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onOpenPitch}
+              className="min-h-[38px] px-4 py-1.5 rounded-full text-[12px] font-mono-numbers uppercase tracking-wider bg-[#FC5000] text-white font-bold hover:bg-[#e04700] transition-colors cursor-pointer flex items-center gap-1.5 shadow-lg shadow-[#FC5000]/20"
+            >
+              <span>🎙️</span>
+              <span>Pitch Mode</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={onToggleSimpleView}
+              aria-pressed={simpleView}
+              className={`hidden sm:flex min-h-[38px] px-3.5 py-1.5 rounded-full text-[12px] font-mono-numbers uppercase tracking-wider border transition-all cursor-pointer items-center gap-2 ${
+                simpleView
+                  ? 'bg-[#FC5000] text-white border-[#FC5000] font-bold'
+                  : 'bg-[#131316] text-[#9A8F85] border-[#26262B] hover:text-[#F2EFE9]'
               }`}
-            />
-            <span>Simple view {simpleView ? 'On' : 'Off'}</span>
-          </button>
+            >
+              <span
+                className={`w-2 h-2 rounded-full ${
+                  simpleView ? 'bg-white' : 'bg-[#9A8F85]'
+                }`}
+              />
+              <span>Simple view {simpleView ? 'On' : 'Off'}</span>
+            </button>
+          </div>
         </div>
 
         {/* Region Bar + Mobile Quick Nav */}
@@ -276,21 +289,22 @@ export function EmberlineHero({
             <JargonTooltip term="Detection">
               <span className="text-[#F2EFE9]">detections</span>
             </JargonTooltip>{' '}
-            into one continuous record across {regionsData.regions.filter((r: any) => r.isReady).length} global fire regions.
+            into one continuous record across {regionsData.regions.filter((r: any) => r.isReady).length} global fire regions (including India).
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
             <button
-              onClick={onExploreClick}
-              className="min-h-[44px] bg-[#FC5000] text-white hover:bg-[#e04700] text-[13px] sm:text-[14px] font-sans font-semibold uppercase tracking-[0.04em] py-3 px-7 rounded-full transition-colors cursor-pointer"
+              onClick={onOpenPitch}
+              className="min-h-[44px] bg-[#FC5000] text-white hover:bg-[#e04700] text-[13px] sm:text-[14px] font-sans font-semibold uppercase tracking-[0.04em] py-3 px-7 rounded-full transition-colors cursor-pointer flex items-center gap-2"
             >
-              Explore the Fix
+              <span>🎙️</span>
+              <span>Launch Pitch Walkthrough</span>
             </button>
             <button
-              onClick={onMethodClick}
+              onClick={onExploreClick}
               className="min-h-[44px] bg-[#131316] text-[#F2EFE9] hover:bg-[#1E1E24] border border-[#26262B] text-[13px] sm:text-[14px] font-sans font-medium py-3 px-6 rounded-full transition-colors cursor-pointer"
             >
-              See the 2012 Jump
+              Explore the Fix
             </button>
           </div>
         </div>
